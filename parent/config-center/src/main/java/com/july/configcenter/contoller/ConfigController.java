@@ -2,7 +2,10 @@ package com.july.configcenter.contoller;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
+import com.july.configcenter.config.CardConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -21,10 +24,19 @@ public class ConfigController {
     @NacosValue(value = "${user.nam2e:fuck}", autoRefreshed = true)
     private String userName;
 
+    @Autowired
+    private CardConfig cardConfig;
+
     @RequestMapping(value = "/get")
     @ResponseBody
     public String get() {
         final String user = System.getProperty("user.name");
         return userName + "-" + userAge + "-System:" + user;
+    }
+
+    @GetMapping(value = "/card")
+    @ResponseBody
+    public String card() {
+        return cardConfig.getNumber() + "--" + cardConfig.getSuit();
     }
 }
