@@ -3,6 +3,7 @@ package com.july.configcenter.contoller;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.july.configcenter.config.CardConfig;
+import com.july.configcenter.config.GpCardConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,10 @@ public class ConfigController {
     @Autowired
     private CardConfig cardConfig;
 
+    @Autowired
+    private GpCardConfig gpCardConfig;
+
+
     @RequestMapping(value = "/get")
     @ResponseBody
     public String get() {
@@ -38,5 +43,11 @@ public class ConfigController {
     @ResponseBody
     public String card() {
         return cardConfig.getNumber() + "--" + cardConfig.getSuit();
+    }
+
+    @GetMapping(value = "/ns")
+    @ResponseBody
+    public String ns() {
+        return gpCardConfig.getNumber() + "-SS-" + gpCardConfig.getSuit();
     }
 }

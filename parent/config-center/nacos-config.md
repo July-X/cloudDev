@@ -102,10 +102,41 @@ public class CardConfig {
 ```
 ## 不同profile如何隔离配置
 
+
 ## 读取配置得底层机制分析
 
 
 ## 自动刷新配置机制分析
 
+
+* nacos 接受配置变动事件，自动解析复制逻辑`com.alibaba.nacos.spring.context.annotation.config.NacosValueAnnotationBeanPostProcessor.onApplicationEvent`
+
+``` 
+public void onApplicationEvent(NacosConfigReceivedEvent event) {
+		// In to this event receiver, the environment has been updated the
+		// latest configuration information, pull directly from the environment
+		// fix issue #142
+		for (Map.Entry<String, List<NacosValueTarget>> entry : placeholderNacosValueTargetMap.entrySet()) {
+			String key = environment.resolvePlaceholders(entry.getKey());
+			String newValue = environment.getProperty(key);
+			if (newValue == null) {
+				continue;
+			}
+			List<NacosValueTarget> beanPropertyList = entry.getValue();
+			for (NacosValueTarget target : beanPropertyList) {
+				String md5String = MD5.getInstance().getMD5String(newValue);
+				boolean isUpdate = !target.lastMD5.equals(md5String);
+				if (isUpdate) {
+					target.updateLastMD5(md5String);
+					if (target.method == null) {
+						setField(target, newValue);
+					} else {
+						setMethod(target, newValue);
+					}
+				}
+			}
+		}
+	}
+```
 
 
