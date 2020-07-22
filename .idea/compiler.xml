@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="cloudDev" target="1.8" />
+      <module name="cloudDev" target="1.5" />
       <module name="config-center" target="1.8" />
     </bytecodeTargetLevel>
   </component>

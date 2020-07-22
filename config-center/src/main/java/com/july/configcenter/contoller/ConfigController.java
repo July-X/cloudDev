@@ -22,7 +22,7 @@ public class ConfigController {
 
     @NacosValue(value = "${user.age:25}", autoRefreshed = true)
     private int userAge;
-    @NacosValue(value = "${user.nam2e:fuck}", autoRefreshed = true)
+    @NacosValue(value = "${user.name:notfound}", autoRefreshed = true)
     private String userName;
 
     @Autowired

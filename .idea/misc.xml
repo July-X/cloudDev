@@ -8,17 +8,23 @@
       <list>
         <option value="$PROJECT_DIR$/parent/pom.xml" />
         <option value="$PROJECT_DIR$/parent/config-center/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/parent/pom.xml" />
+      </set>
+    </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="14" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="SbtLocalSettings">
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$/../../learnTest/playframework/hello-akka" value="1443492588000" />
-        <entry key="$PROJECT_DIR$/../../sourceTree/playframework/framework" value="1443580732000" />
+        <entry key="$USER_HOME$/learnTest/playframework/hello-akka" value="1443492588000" />
+        <entry key="$PROJECT_DIR$/../playframework/framework" value="1443580732000" />
         <entry key="$PROJECT_DIR$/../../../code_soft/activator-dist-1.3.6/hello-app" value="1443495452000" />
       </map>
     </option>
