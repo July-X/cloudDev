@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/base-server/base-server.iml" filepath="$PROJECT_DIR$/base-server/base-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/cloudDev.iml" filepath="$PROJECT_DIR$/cloudDev.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-center/config-center.iml" filepath="$PROJECT_DIR$/config-center/config-center.iml" />
     </modules>

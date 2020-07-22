@@ -7,11 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="base-server" />
         <module name="config-center" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="cloudDev" target="1.5" />
+      <module name="base-server" target="1.8" />
+      <module name="cloudDev" target="1.8" />
       <module name="config-center" target="1.8" />
     </bytecodeTargetLevel>
   </component>
