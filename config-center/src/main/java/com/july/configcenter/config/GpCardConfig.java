@@ -20,9 +20,9 @@ import org.springframework.context.annotation.Configuration;
 @NacosPropertySource(dataId = "nacos-config-card-gp.properties", groupId = "DEV_GROUP", autoRefreshed = true)
 public class GpCardConfig {
     private final Logger logger = LoggerFactory.getLogger(GpCardConfig.class);
-    @NacosValue(value = "${card.number:25}", autoRefreshed = true)
+    @NacosValue(value = "${gp.number:25}", autoRefreshed = true)
     private int number;
-    @NacosValue(value = "${card.suit}", autoRefreshed = true)
+    @NacosValue(value = "${gp.suit}", autoRefreshed = true)
     private String suit;
 
     @NacosConfigListener(dataId = "nacos-config-card-gp.properties", groupId = "DEV_GROUP")

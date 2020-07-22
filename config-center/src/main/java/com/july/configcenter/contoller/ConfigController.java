@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import static org.springframework.core.env.StandardEnvironment.SYSTEM_PROPERTIES_PROPERTY_SOURCE_NAME;
+
 /**
  * Created on 2020/7/7
  *
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping("/config")
-@NacosPropertySource(dataId = "nacos-config-example.properties", autoRefreshed = true)
+@NacosPropertySource(dataId = "nacos-config-example.properties", autoRefreshed = true, before = SYSTEM_PROPERTIES_PROPERTY_SOURCE_NAME/*避免系统配置覆盖*/)
 public class ConfigController {
 
     @NacosValue(value = "${user.age:25}", autoRefreshed = true)
